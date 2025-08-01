@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Scrollable from "../../components/partial/Scrollable.astro";
+import BlogCard from "../../components/partial/BlogCard.astro";
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout class="pointer-events-auto overflow-hidden mb-10">
+  <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
+    <div class="headline border-b-2 rounded-b-md pb-2">Blog Posts</div>
+  </div>
+<Scrollable>
+<section class="flex flex-wrap justify-center gap-15 mb-20">
+{
+	posts.map((post) => (
+		<BlogCard 
+			id={post.id}
+			img={post.data.heroImage}
+			title={post.data.title}
+			description={post.data.description}
+			pubDate={post.data.pubDate}
+		/>
+	))
+}
+</section>
+</Scrollable>
+</BaseLayout>

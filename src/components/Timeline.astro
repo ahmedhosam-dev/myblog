@@ -1,0 +1,56 @@
+---
+const { title, date } = Astro.props;
+--- 
+
+<div 
+  class="timeline-item group relative py-20 sm:py-40 transition-all duration-700 ease-out sm:scale-75 sm:opacity-30 sm:blur-sm pointer-events-none 
+         will-change-transform will-change-opacity pl-8 sm:pl-32 sm:snap-start"
+>
+  <div class=" mb-1 text-2xl font-medium text-blue-500 sm:mb-0">{ title }</div>
+
+  <div class="mb-1 flex flex-col items-start 
+              before:absolute before:left-2 before:h-full before:-translate-x-1/2 before:translate-y-3 before:self-start 
+              before:bg-slate-300 before:px-px group-last:before:hidden 
+              after:absolute after:left-2 after:box-content after:h-2 after:w-2 after:-translate-x-1/2 after:translate-y-1.5 
+              after:rounded-full after:border-4 after:border-slate-50 after:bg-blue-600 
+              sm:flex-row sm:before:left-0 sm:before:ml-[6.5rem] sm:after:left-0 sm:after:ml-[6.5rem]">
+    <time class="left-3 mb-3 inline-flex text-nowrap h-6 w-10 sm:w-20 translate-y-0.5 items-center justify-center rounded-full text-xs font-semibold text-gray-400 uppercase sm:absolute sm:mb-0">{ date }</time>
+  </div>
+
+  <div class="text-dark dark:text-light flex flex-col">
+    <p class="pb-5"><slot /></p>
+    <slot name="skills"/>
+  </div>
+</div>
+
+<script>
+const items = document.querySelectorAll('.timeline-item');
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      const e: any = entry 
+      if (entry.isIntersecting) {
+        // Show the item
+        e.target.classList.add('sm:scale-100', 'sm:opacity-100', 'sm:blur-0');
+        e.target.classList.remove('sm:scale-75', 'sm:opacity-30', 'sm:blur-sm');
+        e.target.style.pointerEvents = 'auto';
+      } else {
+        // Hide the item
+        e.target.classList.remove('sm:scale-100', 'sm:opacity-100', 'sm:blur-0');
+        e.target.classList.add('sm:scale-75', 'sm:opacity-30', 'sm:blur-sm');
+        e.target.style.pointerEvents = 'none';
+      }
+    });
+  },
+  {
+    threshold: 0.6 // Only animate the one most in view
+  }
+);
+
+if (window.innerWidth >= 640) {
+  console.log("Fuck")
+  items.forEach(item => observer.observe(item));
+}
+
+</script>

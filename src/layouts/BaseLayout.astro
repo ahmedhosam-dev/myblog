@@ -1,0 +1,29 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseHead from "../components/BaseHead.astro";
+import Background from "../components/partial/Background.astro";
+import Header from "../components/partial/header/_.astro";
+import Aside from "../components/partial/aside/_.astro";
+import Rside from "../components/partial/rside/_.astro";
+
+
+const { pageTitle, pageDescription, class: className, ...props } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={pageTitle || SITE_TITLE} description={ pageDescription || SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Background />
+
+    <Header />
+
+    <Aside />
+
+    <main class:list={[className]} {...props}><slot /></main>
+
+    <Rside />
+  </body>
+</html>

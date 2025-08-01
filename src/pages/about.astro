@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Timeline from "../components/Timeline.astro";
+import Skill from "../components/partial/Skill.astro";
+---
+
+<BaseLayout class="pointer-events-auto overflow-hidden mb-10">
+  <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
+    <div class="headline border-b-2 rounded-b-md pb-2">My Store</div>
+
+    <!-- Download CV -->
+    <div class="pointer-events-auto">
+      <div
+        class="flex cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[#ff3856] px-5 py-[10px] text-[15px] tracking-[1.5px] text-light shadow-[0_10px_0_0_rgb(201,46,70)] transition-all duration-300 ease-in-out hover:shadow-[0_7px_0_0_rgb(201,46,70)] active:translate-y-[5px] active:shadow-[0_0px_0_0_rgb(201,46,70)] active:duration-200"
+      >
+        <div class="mr-4 border-r-2 border-light pr-4">
+          <svg
+            class="fill-light"
+            width="20"
+            height="30"
+            viewBox="0 0 41 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.83333 37.7143V44.5714H34.1667V37.7143H37.5833V44.5714C37.5833 45.4807 37.2231 46.3526 36.5824 46.9955C35.9416 47.6385 35.0728 48 34.1667 48H6.83333C5.92718 48 5.05839 47.6385 4.41764 46.9955C3.77689 46.3526 3.41667 45.4807 3.41667 44.5714V37.7143H6.83333Z"
+            ></path>
+            <path
+              d="M22.2083 20.5714V34.5804L26.626 30.1473L29.0417 32.5714L20.5 41.1429L11.9583 32.5714L14.374 30.1473L18.7917 34.5804V20.5714H22.2083Z"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.54167 0C9.44782 0 10.3166 0.361482 10.9574 1.00446C11.5981 1.64745 11.9583 2.51926 11.9583 3.42857V8.57143C11.957 9.48032 11.5978 10.3528 10.9574 10.9955C10.3169 11.6382 9.44741 11.9986 8.54167 12H3.41667V17.1429H0V0H8.54167ZM3.41667 3.42857V8.57143H8.545L8.54167 3.42857H3.41667Z"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M22.2083 0C23.5672 0.00136151 24.871 0.542519 25.8319 1.5067C26.7927 2.47087 27.332 3.7793 27.3333 5.14286V12C27.332 13.3636 26.7927 14.672 25.8319 15.6362C24.871 16.6003 23.5672 17.1415 22.2083 17.1429H15.375V0H22.2083ZM18.7917 13.7143H22.2083C22.6614 13.7143 23.0958 13.5335 23.4162 13.2121C23.7366 12.8906 23.9167 12.4547 23.9167 12V5.14286C23.9167 4.6882 23.7366 4.25229 23.4162 3.9308C23.0958 3.60931 22.6614 3.42857 22.2083 3.42857H18.7917V13.7143Z"
+            ></path>
+            <path
+              d="M41 0V3.42857H34.1667V6.85714H39.2917V10.2857H34.1667V17.1429H30.75V0H41Z"
+            ></path>
+          </svg>
+        </div>
+        <div class="text-[16px] font-bold text-light">CV</div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="pointer-events-auto h-full overflow-y-auto scroll-smooth snap-y snap-mandatory pr-10 pt-10
+  [&::-webkit-scrollbar]:w-1
+  [&::-webkit-scrollbar-track]:bg-sky-100
+  [&::-webkit-scrollbar-thumb]:bg-sky-300
+  dark:[&::-webkit-scrollbar-track]:bg-sky-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-sky-500"
+  >
+  <!-- Intro -->
+    <div class="sm:snap-center sm:mb-30 mb-20">
+      This isn't a story about someone who went through a lot to chase a dream.
+      It's not about a genius kid who made big achievements early in life either.
+
+      It's just a story about a normal kid — a little curious, loved trying new things, and maybe got a bit lucky along the way.
+
+      One thing's clear: his real journey is still ahead, and there’s a lot more to come.
+
+      Let’s go back to where it all started… and see how far it can go.
+    </div>
+
+    <!-- <div class="relative -my-6 mb-10 mt-10 sm:-ml-10"> -->
+    <div class="relative flex flex-col">
+      <Timeline title="Normal kid" date="">
+        Just a regular kid whose biggest goal in life was to play video games and explore everything around him.
+        From toys to electronics — I was always curious.
+        I broke a lot of things just to see what was inside and figure out how they worked…
+        and tried to put them back together — but honestly, I usually failed.
+      </Timeline>
+      <Timeline title="Behind the screen" date="2017-2018">
+        At school, I was introduced to HTML and CSS — and I really enjoyed it.
+        That’s when I thought: “What if I build my own game?”
+        I didn’t know how, so I searched YouTube and found Unity3D.
+        I followed some tutorials, built my first basic world…
+        Then came the next step: I needed to learn C#.
+        That’s how I got into programming — starting with the basics.
+        <div class="skills" slot="skills">
+          <Skill name="HTML" url=""/>
+          <Skill name="CSS" url=""/>
+          <Skill name="C#" url=""/>
+          <Skill name="Unity3D" url=""/>
+          <Skill name="Self Learning" url=""/>
+          <Skill name="Persistence" url=""/>
+          <Skill name="Logical Thinking" url=""/>
+        </div>
+      </Timeline>
+      <Timeline title="Trying something a bit different" date="2019-2021">
+        After stepping away from coding for a while because of school,
+        I felt like trying something new — graphic design.
+        I started with the basics, using tools like Adobe Photoshop and Illustrator.
+        At first, I just edited some of my photos…
+        But soon I got into manipulation — turning imagination into reality.
+        <div class="skills" slot="skills">
+          <Skill name="Photoshop" url=""/>
+          <Skill name="Illustrator" url=""/>
+          <Skill name="Graphic Design" url=""/>
+          <Skill name="Creativity" url=""/>
+          <Skill name="Aesthetic Sensibility" url=""/>
+        </div>
+      </Timeline>
+      <Timeline title="The real start — with a roadmap" date="2022">
+        I got back into coding — but this time, I wanted to take it seriously.
+        I started looking for a clear path to follow, and I found one:
+        a backend roadmap by Eng. Ahmed Metwally.
+        It was straight to the point, no fluff — just what I needed to focus.
+        I began with Python, because I wanted to master the basics without the headache of a complex language.
+        While working through the roadmap, I also taught myself touch typing to speed up my workflow.
+        <div class="skills" slot="skills">
+          <Skill name="Python" url=""/>
+          <Skill name="Git/GitHub/GitFlow" url=""/>
+          <Skill name="Windows/Linux Command Line" url=""/>
+          <Skill name="OOP" url=""/>
+          <Skill name="Unit Testing" url=""/>
+          <Skill name="Computing Architecture Basics" url=""/>
+          <Skill name="Goal-Oriented Thinking" url=""/>
+          <Skill name="Focus" url=""/>
+          <Skill name="Discipline" url=""/>
+        </div>
+      </Timeline>
+      <Timeline title="Education" date="2022">
+        I joined October Technological University, studying IT with a focus on Software Engineering.
+        It was a good start — but along the way, I got lost more than once.
+        Still, I ended up learning even more.
+        I focused on hands-on practice, explored different programming languages and frameworks,
+        and the academic side helped me understand the deeper technical details.
+        <div class="skills" slot="skills">
+          <Skill name="C++" url=""/>
+          <Skill name="Java" url=""/>
+          <Skill name="Data Structure & Algorithms" url=""/>
+          <Skill name="SOLD Principles" url=""/>
+          <Skill name="PHP" url=""/>
+          <Skill name="Web Programming" url=""/>
+          <Skill name="Operating System" url=""/>
+          <Skill name="Database Design" url=""/>
+          <Skill name="Database Normalization" url=""/>
+          <Skill name="Django" url=""/>
+          <Skill name="Time Management" url=""/>
+          <Skill name="Learning Agility" url=""/>
+        </div>
+      </Timeline>
+      <Timeline title="First Job" date="2023-2025">
+        My first role was as an IT Helpdesk in a company focused on building educational environments.
+        There, I learned how to deal with people of all ages — since our clients were schools and training centers for different age groups.
+        Later on, I landed my first real opportunity as a Backend Engineer.
+        It was a chance to apply everything I had learned — from planning and organizing to building and testing — alongside a close friend.
+        It was a valuable experience that taught me a lot, even while I was still juggling university.
+        <div class="skills" slot="skills">
+          <Skill name="Software Engineering" url=""/>
+          <Skill name="Laravel" url=""/>
+          <Skill name="MySQL" url=""/>
+          <Skill name="Backend" url=""/>
+          <Skill name="UI&UX" url=""/>
+          <Skill name="C" url=""/>
+          <Skill name="Design Patterns" url=""/>
+          <Skill name="RESTful API" url=""/>
+          <Skill name="Communication" url=""/>
+          <Skill name="Teamwork" url=""/>
+          <Skill name="Ownership" url=""/>
+        </div>
+      </Timeline>
+      <Timeline title="The end of the beginning" date="2025">
+        After more than three years, I finally covered everything in the roadmap — and even went beyond it.
+        It feels great to look back and see how far I’ve come…
+        but I know the journey is still just getting started.
+        This is only the end of the beginning.
+        <div class="skills" slot="skills">
+          <Skill name="NodeJS" url=""/>
+          <Skill name="MongoDB" url=""/>
+          <Skill name="Docker" url=""/>
+          <Skill name="Astro" url=""/>
+          <Skill name="TailwindCSS" url=""/>
+          <Skill name="Digital Marketing" url=""/>
+          <Skill name="Growth Mindset" url=""/>
+          <Skill name="Reflection" url=""/>
+          <Skill name="Consistency" url=""/>
+        </div>
+      </Timeline>
+    </div>
+
+  <!-- Intro -->
+    <div class="mb-50 sm:snap-start">
+      From here on, I’ll be sharing everything — the early steps, the mistakes I made, how I learned from them, and the wins that came after (and why they happened in the first place).
+      Follow along if you’re curious about the future of a once-curious kid…
+      now a passionate young developer, still writing his story.
+    </div>
+  </div>
+</BaseLayout>
