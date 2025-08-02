@@ -1,12 +1,12 @@
 ---
-import Base from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Link from "../components/partial/Link.astro";
 ---
 
-<Base class="flex flex-col justify-center items-center">
-  <section class="container">
+<BaseLayout>
+  <section class="flex flex-col items-center gap-2 pt-35">
     <div
-      class="headline font-bold text-black dark:text-white text-center"
+      class="hero-headline font-bold text-black dark:text-white text-center"
     >
       Think, Design, Build.
     </div>
@@ -41,4 +41,4 @@ import Link from "../components/partial/Link.astro";
       </Link>
     </div>
   </section>
-</Base>
+</BaseLayout>
