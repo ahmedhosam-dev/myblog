@@ -20,10 +20,12 @@
     font-size: clamp(22px, 7vw, 34px);
   }
   .nav-icon-color {
-    @apply transition-all duration-300 hover:stroke-emerald-300 hover:[filter:drop-shadow(0_0_5px_#55FF00)_drop-shadow(0_0_10px_#55FF00)] hover:animate-pulse;
+    @apply transition-all duration-300 hover:stroke-emerald-300! hover:fill-emerald-300! hover:[filter:drop-shadow(0_0_5px_#55FF00)_drop-shadow(0_0_10px_#55FF00)] hover:animate-pulse;
   }
   nav a.active {
-    @apply fill-green-500 stroke-green-500 stroke-2;
+    .icon-svg {
+      @apply fill-emerald-500! stroke-emerald-500!;
+    }
   }
 }
 
@@ -47,11 +49,15 @@ aside {
 }
 
 main {
-  @apply pointer-events-none z-10 col-span-6 lg:col-span-4 row-span-5 row-start-2 p-5;
+  @apply relative pointer-events-none z-10 col-span-6 lg:col-span-4 row-span-5 row-start-2 p-5;
 }
 
 .rside {
   @apply z-1 pointer-events-none hidden mr-5 lg:flex lg:max-w-40 justify-between justify-self-end items-center flex-col row-span-5 col-start-6 row-start-2 p-10 pr-15;
+}
+
+footer {
+  @apply z-1 absolute left-0 right-0 bottom-0 mb-5 text-center text-xs text-gray-500 dark:text-gray-400;
 }
 
 /* HEXAGONE GRID */

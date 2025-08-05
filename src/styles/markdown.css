@@ -1,5 +1,14 @@
-/* Base styling for markdown-rendered content */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-dark: #000820;
+  --color-light: #ebebeb;
+}
+
 .markdown {
+  @apply text-dark! dark:text-light!;
   line-height: 1.6;
   color: #ebebeb;
   max-width: 800px;

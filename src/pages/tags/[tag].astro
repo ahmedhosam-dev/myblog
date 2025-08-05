@@ -2,14 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogCard from '../../components/partial/BlogCard.astro';
 import Scrollable from '../../components/partial/Scrollable.astro';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const allPosts = Object.values(import.meta.glob('../../content/blog/*.md', { eager: true }));
+  const allPosts = (await getCollection('blog')).sort(
+  	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
 
-  const uniqueTags = [... new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+  const uniqueTags = [... new Set(allPosts.map((post: any) => post.data.tags).flat())];
 
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post: any) => post.frontmatter.tags.includes(tag));
+    const filteredPosts = allPosts.filter((post: any) => post.data.tags.includes(tag));
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -29,11 +32,11 @@ const { posts } = Astro.props;
 <Scrollable>
   <div class="flex flex-wrap justify-center gap-15 mb-20">
     {posts.map((post: any) => <BlogCard 
-      url={post.url}
-      title={post.frontmatter.title}
       id={post.id}
-      description={post.frontmatter.description}
-      pubDate={post.frontmatter.pubDate}
+      title={post.data.title}
+			img={post.data.heroImage}
+      description={post.data.description}
+      pubDate={post.data.pubDate}
     />)}
   </div>
 </Scrollable>

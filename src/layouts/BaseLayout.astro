@@ -5,6 +5,7 @@ import Background from "../components/partial/Background.astro";
 import Header from "../components/partial/header/_.astro";
 import Aside from "../components/partial/aside/_.astro";
 import Rside from "../components/partial/rside/_.astro";
+import Footer from "../components/Footer.astro";
 
 
 const { pageTitle, pageDescription, class: className, ...props } = Astro.props;
@@ -25,5 +26,6 @@ const { pageTitle, pageDescription, class: className, ...props } = Astro.props;
     <main class:list={[className]} {...props}><slot /></main>
 
     <Rside />
+    <Footer />
   </body>
 </html>
