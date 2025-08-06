@@ -14,7 +14,7 @@ const posts = (await getCollection('blog')).sort(
     <div class="headline border-b-2 rounded-b-md pb-2">Blog Posts</div>
   </div>
 <Scrollable>
-<section class="flex flex-wrap justify-center gap-15 mb-20">
+<section class="flex flex-wrap justify-center gap-15 mb-20 mt-10">
 {
 	posts.map((post) => (
 		<BlogCard 

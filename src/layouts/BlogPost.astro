@@ -14,24 +14,26 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <BaseLayout title={title} description={description} class="mb-20">
   <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-4">
     <div class="headline border-b-2 rounded-b-md pb-2">{title}</div>
+    <div class="pointer-events-auto pr-10">
+		<div>
+			<FormattedDate date={pubDate} />
+			{
+				updatedDate && (
+					<div>
+						Last updated on <FormattedDate date={updatedDate} />
+					</div>
+				)
+			}
+		</div>
+	</div>
   </div>
 <Scrollable>
 	<article class="markdown max-w-3xl mx-auto w-full max-h-screen px-4 py-8">
 		<div>
 			{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 		</div>
-		<div>
+		<div class="pb-20">
 			<div>
-				<div>
-					<FormattedDate date={pubDate} />
-					{
-						updatedDate && (
-							<div>
-								Last updated on <FormattedDate date={updatedDate} />
-							</div>
-						)
-					}
-				</div>
 			</div>
 			<slot />
 		</div>

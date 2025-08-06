@@ -30,7 +30,7 @@ const { posts } = Astro.props;
   </div>
 
 <Scrollable>
-  <div class="flex flex-wrap justify-center gap-15 mb-20">
+  <div class="flex flex-wrap justify-center gap-15 mb-20 mt-10">
     {posts.map((post: any) => <BlogCard 
       id={post.id}
       title={post.data.title}
