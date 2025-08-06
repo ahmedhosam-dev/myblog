@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/partial/BlogCard.astro';
+import Scrollable from '../../components/partial/Scrollable.astro';
+import { getCollection } from 'astro:content';
+
+export const prerender = false;
+
+const url = new URL(Astro.url);
+const searchTerm = url.searchParams.get('q')?.toLowerCase() || '';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const filteredPosts = allPosts.filter((post) => {
+  const title = post.data.title?.toLowerCase() || '';
+  const description = post.data.description?.toLowerCase() || '';
+  const tags = (post.data.tags || []).join(' ').toLowerCase();
+  const body = post.body?.toLowerCase() || '';
+
+  return (
+    title.includes(searchTerm) ||
+    description.includes(searchTerm) ||
+    tags.includes(searchTerm) ||
+    body.includes(searchTerm)
+  );
+});
+---
+
+<BaseLayout pageTitle={`Search: ${searchTerm}`}>
+  <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
+    <div class="headline border-b-2 rounded-b-md pb-2">Search Results for "{searchTerm}"</div>
+  </div>
+
+  <Scrollable>
+    {filteredPosts.length > 0 ? (
+      <div class="flex flex-wrap justify-center gap-15 mb-20 mt-10">
+        {filteredPosts.map((post) => (
+          <BlogCard
+            id={post.id}
+            title={post.data.title}
+            img={post.data.heroImage}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+          />
+        ))}
+      </div>
+    ) : (
+      <p class="text-center text-gray-500 dark:text-gray-400 mt-20">No results found for "{searchTerm}".</p>
+    )}
+  </Scrollable>
+</BaseLayout>

@@ -3,8 +3,8 @@ const { title, date } = Astro.props;
 --- 
 
 <div 
-  class="timeline-item group relative py-20 sm:py-40 transition-all duration-700 ease-out sm:scale-75 sm:opacity-30 sm:blur-sm pointer-events-none 
-         will-change-transform will-change-opacity pl-8 sm:pl-32 sm:snap-start"
+  class="group relative py-20 transition-all duration-700 ease-out pointer-events-none 
+         will-change-transform will-change-opacity pl-8 sm:pl-32"
 >
   <div class=" mb-1 text-2xl font-medium text-blue-500 sm:mb-0">{ title }</div>
 
@@ -23,32 +23,3 @@ const { title, date } = Astro.props;
   </div>
 </div>
 
-<script>
-const items = document.querySelectorAll('.timeline-item');
-
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      const e: any = entry 
-      if (entry.isIntersecting) {
-        // Show the item
-        e.target.classList.add('sm:scale-100', 'sm:opacity-100', 'sm:blur-0');
-        e.target.classList.remove('sm:scale-75', 'sm:opacity-30', 'sm:blur-sm');
-        e.target.style.pointerEvents = 'auto';
-      } else {
-        // Hide the item
-        e.target.classList.remove('sm:scale-100', 'sm:opacity-100', 'sm:blur-0');
-        e.target.classList.add('sm:scale-75', 'sm:opacity-30', 'sm:blur-sm');
-        e.target.style.pointerEvents = 'none';
-      }
-    });
-  },
-  {
-    threshold: 0.6 // Only animate the one most in view
-  }
-);
-
-if (window.innerWidth >= 640) {
-  items.forEach(item => observer.observe(item));
-}
-</script>

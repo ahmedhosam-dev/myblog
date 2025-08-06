@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectCard from "../components/partial/ProjectCard.astro"
+import ProjectCard from "../components/partial/ProjectCard.astro";
+import Scrollable from "../components/partial/Scrollable.astro";
 
 const response: any = await fetch("https://api.github.com/users/ahmedhosam-dev/repos?sort=updated&per_page=100")
 if (!response.ok) { console.error(`GitHub API request failed: ${response.status}`); }
@@ -13,16 +14,9 @@ const repos = await response.json();
     <div class="headline border-b-2 rounded-b-md pb-2">Projects</div>
   </div>
 
-  <div
-    class="pointer-events-auto h-full overflow-y-auto scroll-smooth snap-y snap-mandatory pr-10 pl-5 pt-10
-  [&::-webkit-scrollbar]:w-1
-  [&::-webkit-scrollbar-track]:bg-sky-100
-  [&::-webkit-scrollbar-thumb]:bg-sky-300
-  dark:[&::-webkit-scrollbar-track]:bg-sky-700
-  dark:[&::-webkit-scrollbar-thumb]:bg-sky-500"
-  >
+  <Scrollable>
   {response.ok ? 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-7 mb-30">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-7 mb-30 mt-5">
       {repos.map((repo: any) => (
         <ProjectCard repo={repo}  />
       ))}
@@ -65,4 +59,5 @@ const repos = await response.json();
     </div>
   }
   </div>
+  </Scrollable>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Timeline from "../components/Timeline.astro";
 import Skill from "../components/partial/Skill.astro";
+import Scrollable from "../components/partial/Scrollable.astro";
 import fs from "fs";
 import path from "path";
 
@@ -60,16 +61,9 @@ const cvPath = `/cv/v${latestVersion}/Ahmed_Hosam_CV.pdf`;
     </div>
   </div>
 
-  <div
-    class="pointer-events-auto h-full overflow-y-auto snap-y snap-mandatory pr-10 pt-10
-  [&::-webkit-scrollbar]:w-2
-  [&::-webkit-scrollbar-track]:bg-sky-100
-  [&::-webkit-scrollbar-thumb]:bg-sky-300
-  dark:[&::-webkit-scrollbar-track]:bg-sky-700
-  dark:[&::-webkit-scrollbar-thumb]:bg-sky-500"
-  >
+  <Scrollable>
   <!-- Intro -->
-    <div class="sm:snap-center sm:mb-30 mb-20">
+    <div class="mb-20">
       This isn't a story about someone who went through a lot to chase a dream.
       It's not about a genius kid who made big achievements early in life either.
 
@@ -199,10 +193,11 @@ const cvPath = `/cv/v${latestVersion}/Ahmed_Hosam_CV.pdf`;
     </div>
 
   <!-- Intro -->
-    <div class="mb-50 sm:snap-start">
+    <div class="mb-50">
       From here on, I’ll be sharing everything — the early steps, the mistakes I made, how I learned from them, and the wins that came after (and why they happened in the first place).
       Follow along if you’re curious about the future of a once-curious kid…
       now a passionate young developer, still writing his story.
     </div>
   </div>
+  </Scrollable>
 </BaseLayout>

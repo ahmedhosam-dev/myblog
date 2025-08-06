@@ -1,4 +1,5 @@
 ---
+const url = new URL(Astro.url);
 ---
 
 
@@ -58,8 +59,8 @@
       const searchInput = searchPopup.querySelector('input') as HTMLInputElement;
       if (searchInput.value.trim() !== '') {
       // Handle search submission logic here
-      console.log(`Searching for: ${searchInput.value}`);
-      searchPopup.classList.add('hidden');
+      window.location.replace(`${document.location.origin}/blog/search?q=${searchInput.value.trim()}`);
+        searchPopup.classList.add('hidden');
       }
   });
 
@@ -67,6 +68,7 @@
       const searchInput = searchPopup.querySelector('input') as HTMLInputElement;
       if ( e.key === 'Enter' && searchInput.value.trim() !== '') {
           console.log(`Searching for: ${searchInput.value}`);
+          window.location.replace(`${document.location.origin}/blog/search?q=${searchInput.value.trim()}`);
           searchPopup.classList.add('hidden');
       }
   });
