@@ -41,7 +41,7 @@ body {
 }
 
 header {
-  @apply z-50 pointer-events-none col-span-6 row-span-1 mx-5 px-5 max-h-25 flex flex-row items-center justify-between border-b-2 rounded-md border-dark dark:border-light lg:p-10 lg:pb-10;
+  @apply z-50 pointer-events-none col-span-6 row-span-1 mx-5 px-5 max-h-20 sm:max-h-25 flex flex-row items-center justify-between border-b-2 rounded-md border-dark dark:border-light lg:p-10 lg:pb-10;
 }
 
 aside {
@@ -49,7 +49,7 @@ aside {
 }
 
 main {
-  @apply relative pointer-events-none z-10 col-span-6 lg:col-span-4 row-span-5 row-start-2 p-5;
+  @apply relative pointer-events-none z-10 col-span-6 lg:col-span-4 row-span-5 row-start-2 px-5 md:p-5;
 }
 
 .rside {
@@ -57,7 +57,7 @@ main {
 }
 
 footer {
-  @apply z-1 absolute left-0 right-0 bottom-0 mb-3 text-center text-xs text-gray-500 dark:text-gray-400;
+  @apply z-1 absolute left-0 right-0 bottom-0 mb-1 text-center text-xs text-gray-500 dark:text-gray-400;
 }
 
 /* HEXAGONE GRID */

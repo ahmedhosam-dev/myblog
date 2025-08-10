@@ -10,11 +10,11 @@ const repos = await response.json();
 ---
 
 <BaseLayout class="pointer-events-auto overflow-hidden mb-10">
+  <Scrollable>
   <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
     <div class="headline border-b-2 rounded-b-md pb-2">Projects</div>
   </div>
 
-  <Scrollable>
   {response.ok ? 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-7 mb-30 mt-5">
       {repos.map((repo: any) => (

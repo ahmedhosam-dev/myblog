@@ -25,11 +25,11 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag} class="overflow-hidden">
+<Scrollable>
   <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
     <div class="headline border-b-2 rounded-b-md pb-2">{tag}</div>
   </div>
 
-<Scrollable>
   <div class="flex flex-wrap justify-center gap-15 mb-20 mt-10">
     {posts.map((post: any) => <BlogCard 
       id={post.id}
