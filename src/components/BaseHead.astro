@@ -4,6 +4,7 @@
 import '../styles/global.css';
 import { SITE_TITLE } from '../consts';
 import FallbackImage from '../assets/default_cover.jpg';
+import FallbackSmallImage from '../assets/default_cover_small.jpg';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
@@ -73,7 +74,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={new URL(FallbackSmallImage.src, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
