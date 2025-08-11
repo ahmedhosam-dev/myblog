@@ -11,7 +11,7 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<BaseLayout pageTitle={title} description={description} image={heroImage} class="pointer-events-auto overflow-hidden mb-5">
+<BaseLayout pageTitle={title} pageDescription={description} pageImage={heroImage} class="pointer-events-auto overflow-hidden mb-5">
 <Scrollable>
   	<div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-4">
     	<div class="headline border-b-2 rounded-b-md pb-2">{title}</div>

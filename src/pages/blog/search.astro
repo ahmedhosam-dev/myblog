@@ -28,7 +28,7 @@ const filteredPosts = allPosts.filter((post) => {
 });
 ---
 
-<BaseLayout pageTitle={`Search: ${searchTerm}`} class="pointer-events-auto overflow-hidden mb-10">
+<BaseLayout pageTitle={`Search: ${searchTerm}`} pageDescription=`Search results for ${searchTerm}` class="pointer-events-auto overflow-hidden mb-10">
   <Scrollable>
   <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
     <div class="headline border-b-2 rounded-b-md pb-2">Search Results for "{searchTerm}"</div>

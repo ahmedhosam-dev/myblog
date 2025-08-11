@@ -9,7 +9,7 @@ if (!response.ok) { console.error(`GitHub API request failed: ${response.status}
 const repos = await response.json();
 ---
 
-<BaseLayout pageTitle="Projects" class="pointer-events-auto overflow-hidden mb-10">
+<BaseLayout pageTitle="Projects" pageDescription="Hi, I'm Ahmed Hosam, Here you can know more about my open source projects." class="pointer-events-auto overflow-hidden mb-10">
   <Scrollable>
   <div class="flex flex-row justify-between items-center font-bold text-black dark:text-light text-center mb-8">
     <div class="headline border-b-2 rounded-b-md pb-2">Projects</div>
