@@ -92,6 +92,7 @@
 
 .markdown li {
   margin-bottom: 0.25em;
+  @apply list-disc marker:bg-dark dark:marker:bg-light;
 }
 
 .markdown li > p {
